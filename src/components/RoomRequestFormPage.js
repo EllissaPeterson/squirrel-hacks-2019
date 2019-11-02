@@ -11,6 +11,7 @@ export default class RoomRequestFormPage extends React.Component {
                 <Form>
                     <br/>
                     <br/>
+                    <h1>Room Request Form</h1>
                     <FormGroup>
                         <Label for="numOfPeople">Number of People:</Label>
                         <Input type="number" name="numOfPeople" id="numOfPeople" placeholder="0" />
