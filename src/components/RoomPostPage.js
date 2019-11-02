@@ -6,15 +6,15 @@ export default class RoomPostPage extends React.Component {
     sendText() {
         var Base64 = require('js-base64').Base64;
         let message = 'Hello, [Name] would like a place to stay in [Post Name]. Their phone number is [Phone Number] and their email is [Email].'; //more info
-        const account = 'AC8958e14b6120c8f3342812c4cdda594e';
-        const token = 'e14286eeb3f4a4eb47c1c0ab5b7dd5ff';
+        const account = 'acct';
+        const token = 'token';
 
         let hash = Base64.encode( `${account}:${token}` );
 
         let form = new FormData();
-        form.append( 'From', '+14154888651' );
+        form.append( 'From', 'from' );
         form.append( 'Body', message );
-        form.append( 'To', '+15157201611' ); //send to post author
+        form.append( 'To', 'to' ); //send to post author
 
         fetch( `https://api.twilio.com/2010-04-01/Accounts/${account}/Messages.json`, {
             method: 'POST',

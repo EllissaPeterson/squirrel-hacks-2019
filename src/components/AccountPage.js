@@ -1,8 +1,11 @@
 import React from 'react';
 import CHeader from './CustomHeader';
-import { Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Container, Row, Col, Button } from 'reactstrap';
 
 export default class MainPage extends React.Component {
+    save (){
+        
+    }
 
     render() {
         return (
@@ -32,6 +35,7 @@ export default class MainPage extends React.Component {
                                     <Label for="phoneNumber">Phone Number</Label>
                                     <Input type="text" name="phoneNumber" id="phoneNumber" placeholder="Current phone number" />
                                 </FormGroup>
+                                <Button onClick={this.save}>Save</Button>
                             </Form>
                         </Col>
                         <Col>
