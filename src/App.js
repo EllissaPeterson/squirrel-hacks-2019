@@ -1,29 +1,26 @@
 import React from 'react';
-// import logo from './logo.svg';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { Button } from 'reactstrap';
 import './App.css';
+import MainPage from './MainPage';
+
+const Home = () => (
+  <div className="App">
+      <header className="App-header">
+        <p>
+          Hello World
+        </p>
+        <Button color="warning" size="lg" style={{width: '75%'}} href="/mainPage" block>Main Page</Button>
+      </header>
+    </div>
+)
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          {/* Edit <code>src/App.js</code> and save to reload. */}
-          Hello World
-          <br/>
-          My First React App "HELLO WORLD"
-        </p>
-        Want to Learn React Click on this link Thanks!
-        <a
-          className="App-link"
-          href="https://drive.google.com/file/d/1J74__LDksIHpfQnEZFitW4LRNMLXlp2Y/view?fbclid=IwAR0PyhFWSWhaY8iHsFpYfKOFbiBP1raJHBIk9rVNfIuC_WVALBc0d9ntS7c"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-         The Road to Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/mainPage" component={MainPage} />
+    </Router>
   );
 }
 
