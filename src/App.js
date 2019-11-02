@@ -2,7 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import { Button } from 'reactstrap';
 import './App.css';
-import MainPage from './MainPage';
+import MainPage from './components/MainPage';
+import AccountPage from './components/AccountPage';
+import RoomPostFormPage from './components/RoomPostFormPage';
+import RoomPostPage from './components/RoomPostPage';
+import RoomRequestFormPage from './components/RoomRequestFormPage';
+import RoomRequestPage from './components/RoomRequestPage';
 
 const Home = () => (
   <div className="App">
@@ -20,6 +25,11 @@ function App() {
     <Router>
       <Route exact path="/" component={Home} />
       <Route exact path="/mainPage" component={MainPage} />
+      <Route exact path="/accountPage" component={AccountPage} />
+      <Route exact path="/roomPostFormPage" component={RoomPostFormPage} />
+      <Route exact path="/roomPostPage" component={RoomPostPage} />
+      <Route exact path="/roomRequestFormPage" component={RoomRequestFormPage} />
+      <Route exact path="/roomRequestPage" component={RoomRequestPage} />
     </Router>
   );
 }
