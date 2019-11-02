@@ -11,6 +11,7 @@ export default class RoomPostFormPage extends React.Component {
                 <Form>
                     <br/>
                     <br/>
+                    <h1>Room Post Form</h1>
                     <FormGroup>
                         <Label for="postName">Name of Post:</Label>
                         <Input type="text" name="postName" id="postName" placeholder="Post Name" />

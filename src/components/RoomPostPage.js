@@ -1,6 +1,7 @@
 import React from 'react';
 import CHeader from './CustomHeader';
 import { Label } from 'reactstrap';
+import ContactInfo from './ContactInfo';
 
 export default class RoomPostPage extends React.Component {
 
@@ -10,7 +11,7 @@ export default class RoomPostPage extends React.Component {
                 <CHeader/>
                 <br/>
                 <br/>
-                <Label id="postName">Post Name</Label>
+                <h1 id="postName"Post Name></h1>
                 <Label id="authorName">Author Name</Label>
                 <Label id="location">Location</Label>
                 {/*Images*/}
