@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import { Button } from 'reactstrap';
 import './App.css';
+import CHeader from './components/CustomHeader';
 import MainPage from './components/MainPage';
 import AccountPage from './components/AccountPage';
 import RoomPostFormPage from './components/RoomPostFormPage';
@@ -12,10 +13,8 @@ import RoomRequestPage from './components/RoomRequestPage';
 const Home = () => (
   <div className="App">
       <header className="App-header">
-        <p>
-          Hello World
-        </p>
-        <Button color="warning" size="lg" style={{width: '75%'}} href="/mainPage" block>Main Page</Button>
+        <CHeader/>
+          <Button color="info" size="lg" style={{width: '75%'}} href="/mainPage" block>Main Page</Button>
       </header>
     </div>
 )
