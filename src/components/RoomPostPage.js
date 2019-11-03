@@ -1,6 +1,7 @@
 import React from 'react';
 import CHeader from './CustomHeader';
 import { Label, Button } from 'reactstrap';
+import axios from 'axios';
 
 export default class RoomPostPage extends React.Component {
     constructor(props) {
@@ -8,27 +9,44 @@ export default class RoomPostPage extends React.Component {
     
         this.state = {
             id: "85a5a7a061c184bde23389dea4505c1b",
-            name: "",
-            numOfPeople: 0,
-            location: "",
-            contactName: "",
-            contactPhone: "",
-            contactEmail: ""
+            name: "John Doe",
+            postTitle: "Farm House",
+            location: "Ames, Iowa",
+            numOfRooms: "3",
+            numOfBeds: "3",
+            numOfBaths: "2",
+            amenities: "Pet Friendly, Wifi",
+            contactName: "John Doe",
+            contactPhone: "+15157201611",
+            contactEmail: "email@gmail.com",
+            profileName: "Jane Doe",
+            profilePhone: "+15157201611",
+            profileEmail: "email@gmail.com"
         };
     }
 
-    sendText() {
+    componentDidMount() {
+        // axios.get('')
+        //   .then(response => {
+        //     console.log(response);
+        //     this.setState({numOfPeople : response.numOfPeople});
+        // });
+    }
+
+    sendText(profileName, postTitle, profilePhone, profileEmail) {
         var Base64 = require('js-base64').Base64;
-        let message = 'Hello, [Name] would like a place to stay in [Post Name]. Their phone number is [Phone Number] and their email is [Email].'; //more info
-        const account = 'acct';
-        const token = 'token';
+        let message = 'Hello, ' + profileName + ' would like a place to stay in ' 
+            + postTitle + '. Their phone number is ' + profilePhone 
+            + ' and their email is ' + profileEmail + '.';
+        const account = 'AC8958e14b6120c8f3342812c4cdda594e';
+        const token = 'e14286eeb3f4a4eb47c1c0ab5b7dd5ff';
 
         let hash = Base64.encode( `${account}:${token}` );
 
         let form = new FormData();
-        form.append( 'From', 'from' );
+        form.append( 'From', '+14154888651' );
         form.append( 'Body', message );
-        form.append( 'To', 'to' ); //send to post author
+        form.append( 'To', '+15157201611' ); //send to post author
 
         fetch( `https://api.twilio.com/2010-04-01/Accounts/${account}/Messages.json`, {
             method: 'POST',
@@ -50,18 +68,17 @@ export default class RoomPostPage extends React.Component {
                 <br/>
                 <br/>
                 <h1 id="postName"Post Name></h1>
-                <Label id="authorName">Author Name</Label>
-                <Label id="location">Location</Label>
+                <Label id="authorName">Author Name: {this.state.name}</Label>
+                <Label id="location">Location: {this.state.location}</Label>
                 {/*Images*/}
-                <Label id="rooms">Rooms</Label>
-                <Label id="beds">Beds</Label>
-                <Label id="baths">Baths</Label>
-                <Label id="Amenities">Amenities</Label>
-                <br/>
-                <Label id="lastUpdated">Last Updated</Label>
+                <Label id="rooms">Room(s): {this.state.numOfRooms}</Label>
+                <Label id="beds">Bed(s): {this.state.numOfBeds}</Label>
+                <Label id="baths">Bath(s): {this.state.numOfBaths}</Label>
+                <Label id="Amenities">Amenities: {this.state.amenities}</Label>
                 <br/>
                 {/*Contact Info*/}
-                <Button color="info" size="lg" style={{width: '75%'}} onClick={this.sendText} block>Click to Send Text</Button>
+                <Button color="info" size="lg" style={{width: '75%'}} onClick={this.sendText(this.state.profileName, this.state.postTitle, this.state.profilePhone, this.state.profileEmail)} block>Click to Send Text</Button>
+                <br/>
             </header>
         )
     }
