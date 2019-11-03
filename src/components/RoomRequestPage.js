@@ -25,15 +25,15 @@ export default class RoomRequestPage extends React.Component {
         var Base64 = require('js-base64').Base64;
         let message = 'Hello, ' + profileName + ' has a place to stay. Their phone number is ' 
             + profilePhone + ' and their email is ' + profileEmail + '.';
-        const account = 'AC8958e14b6120c8f3342812c4cdda594e';
-        const token = 'e14286eeb3f4a4eb47c1c0ab5b7dd5ff';
+        const account = 'auth';
+        const token = 't';
 
         let hash = Base64.encode( `${account}:${token}` );
 
         let form = new FormData();
-        form.append( 'From', '+14154888651' );
+        form.append( 'From', '+' );
         form.append( 'Body', message );
-        form.append( 'To', '+15157201611' ); //send to request author
+        form.append( 'To', '+' ); //send to request author
 
         fetch( `https://api.twilio.com/2010-04-01/Accounts/${account}/Messages.json`, {
             method: 'POST',
