@@ -3,8 +3,6 @@ import CHeader from './CustomHeader';
 import { Label,Button } from 'reactstrap';
 import axios from 'axios';
 
-//var test = require('../test.js');
-
 export default class RoomRequestPage extends React.Component {
     constructor(props) {
         super(props);
@@ -47,14 +45,11 @@ export default class RoomRequestPage extends React.Component {
     }
 
     componentDidMount() {
-        
-
-        //Puo50QE7tNEtmS_6rcLRlDlU4tVTQtTthHSJ6ch4u5GA  API key
-        // axios.get('c4460599-b7e0-4b74-9abe-06fdb33d56e5-bluemix:Puo50QE7tNEtmS_6rcLRlDlU4tVTQtTthHSJ6ch4u5GA@https://c4460599-b7e0-4b74-9abe-06fdb33d56e5-bluemix.cloudantnosqldb.appdomain.cloud/posts/' + this.state.id)
-        //   .then(response => {
-        //     console.log(response);
-        //     this.setState({numOfPeople : response.numOfPeople});
-        // });
+        axios.get('')
+          .then(response => {
+            console.log(response);
+            this.setState({numOfPeople : response.numOfPeople});
+        });
     }
 
     render() {
