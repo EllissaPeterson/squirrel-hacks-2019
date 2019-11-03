@@ -1,8 +1,23 @@
 import React from 'react';
 import CHeader from './CustomHeader';
 import { Label,Button } from 'reactstrap';
+import axios from 'axios';
 
 export default class RoomRequestPage extends React.Component {
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+            id: "85a5a7a061c184bde23389dea4505c1b",
+            name: "",
+            numOfPeople: 0,
+            location: "",
+            contactName: "",
+            contactPhone: "",
+            contactEmail: ""
+        };
+      }
+
     sendText() {
         var Base64 = require('js-base64').Base64;
         let message = 'Hello, [Name] has a place to stay with [numRooms] room(s) and [numBeds] bed(s). Their phone number is [Phone Number] and their email is [Email].'; //more info
@@ -29,6 +44,14 @@ export default class RoomRequestPage extends React.Component {
         } );
     }
 
+    componentDidMount() {
+        axios.get('')
+          .then(response => {
+            console.log(response);
+            this.setState({numOfPeople : response.numOfPeople});
+        });
+    }
+
     render() {
         return (
             <header className="App-header">
@@ -37,7 +60,7 @@ export default class RoomRequestPage extends React.Component {
                 <br/>
                 <h1>Room Request</h1>
                 <Label id="name">Name</Label>
-                <Label id="numOfPeople">Number of People</Label>
+                <Label id="numOfPeople">Number of People: {this.state.numOfPeople}</Label>
                 {/*Contact info*/}
                 <Button color="info" size="lg" style={{width: '75%'}} onClick={this.sendText} block>Click to Send Text</Button>
             </header>
