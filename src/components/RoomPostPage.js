@@ -3,6 +3,20 @@ import CHeader from './CustomHeader';
 import { Label, Button } from 'reactstrap';
 
 export default class RoomPostPage extends React.Component {
+    constructor(props) {
+        super(props);
+    
+        this.state = {
+            id: "85a5a7a061c184bde23389dea4505c1b",
+            name: "",
+            numOfPeople: 0,
+            location: "",
+            contactName: "",
+            contactPhone: "",
+            contactEmail: ""
+        };
+    }
+
     sendText() {
         var Base64 = require('js-base64').Base64;
         let message = 'Hello, [Name] would like a place to stay in [Post Name]. Their phone number is [Phone Number] and their email is [Email].'; //more info
