@@ -12,22 +12,21 @@ app.use(bodyParser.json());
 
 app.post('/', function (req, res){
     console.log(req.body)
-    //var cloudant = Cloudant({username: config.user, password: config.password, url: config.url})
-    var cloudant = new Cloudant({url: config.url, plugins: {iamauth: {iamApiKey: config.password}}});
-    cloudant.db.list(function(err, body) {
-        body.forEach(function(db) {
-            console.log(db);
-            console.log(req.body);
-        });
-    });
+    //var cloudant = Cloudant({usernae: config.user, password: config.password, url: config.url})
+    var cloudant = new Cloudant({url: config.url + "/posts", plugins: {iamauth: {iamApiKey: config.password}}});
 
-    if (true) {
-        res.status(200).send(req.body)
-    } else {
-        //is bad
-        res.status(500).send(JSON.stringify({"error":"bad"}))
+    var send = null;
+    if (req.body.action == "listposts") {
+        cloudant.db.list(function(err, body) {
+            send = body;
+        });
+    } else if (req.body.action == "viewpost") {
+        cloudant.db.get(req.body.id).then((body) => {
+            send = body;
+        });
     }
-})
+    res.status(200).send(body);
+});
 
 app.use(function (err, req, res, next){
     console.log(err)
@@ -36,4 +35,4 @@ app.use(function (err, req, res, next){
 
 var server = app.listen(8900, "0.0.0.0", function(){
     console.log("\nApp listening at http://" + server.address().address + ':' + server.address().port + "\n")
-})
+});
