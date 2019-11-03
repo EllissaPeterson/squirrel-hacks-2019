@@ -31,6 +31,9 @@ export default class MainPage extends React.Component {
                 <Button color="warning" size="lg" style={{width: '75%'}} href="/roomPostFormPage" block>Make Post</Button>
                 <Button color="warning" size="lg" style={{width: '75%'}} href="/roomRequestFormPage" block>Make Request</Button>
                 <Button color="warning" size="lg" style={{width: '75%'}} href="/accountPage" block>Your Account</Button>
+                <Button color="warning" size="lg" style={{width: '75%'}} href="/roomPostPage" block>View Post</Button>
+                <Button color="warning" size="lg" style={{width: '75%'}} href="/roomRequestPage" block>View Request</Button>
+                <br/>
             </header>
         )
     }
