@@ -11,7 +11,7 @@
     "caniuse-lite": "^1.0.30001006",
     "cloudant": "^1.10.0-NOTICE",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-pino-logger": "^4.0.0",
     "ibmcloud-appid": "^6.0.1",
     "js-base64": "^2.5.1",
